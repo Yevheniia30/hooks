@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodosInputForm from './TodosInputForm';
 import TodosList from './TodosList';
 
@@ -17,7 +17,7 @@ const TodosPage = () => {
   const handleDeleteTodo = id =>
     setTodos(prevstate => prevstate.filter(todo => todo.id !== id));
 
-  // отматка сделанніх тодо
+  // отметка сделанніх тодо
   const handleToggleTodo = id => {
     setTodos(prevstate =>
       prevstate.map(todo =>
@@ -30,6 +30,17 @@ const TodosPage = () => {
       ),
     );
   };
+
+  // cохраняем данные из локалсторейдж (аналог didMount)
+  useEffect(() => {
+    setTodos(JSON.parse(localStorage.getItem('todos')));
+  }, []);
+
+  // запишем тодо в локалсторейдж (аналог didUpdate)
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   return (
     <div className="todos">
       <h1>Todos</h1>

@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
   todosInputForm: {
     display: 'flex',
     flexDirection: 'column',
-    width: 300,
+    // width: 345,
   },
   form: {
     display: 'flex',
@@ -25,6 +25,9 @@ const useStyles = createUseStyles({
   radioBtns: {
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  addBtn: {
+    // maxWidth: '100%',
   },
 });
 
@@ -129,10 +132,10 @@ const TodosInputForm = ({ onSubmit }) => {
         </form>
       ) : (
         <Button
+          className={classes.addBtn}
           variant="contained"
           color="primary"
           type="submit"
-          className="addTodoBtn"
           onClick={toggleForm}
         >
           Add todo

@@ -4,6 +4,9 @@ import s from './App.module.css';
 // import Example from './components/Example/Example';
 import TodosPage from './components/Todos/TodosPage';
 import Modal from './components/Modal/Modal';
+// import TimerPage from './components/Timer/TimerPage';
+
+// import Clock from './components/Clock/Clock';
 
 class App extends Component {
   state = {
@@ -45,7 +48,9 @@ class App extends Component {
             </button>
           </Modal>
         )}
+        {/* <TimerPage /> */}
         <TodosPage />
+        {/* <Clock /> */}
       </div>
     );
   }

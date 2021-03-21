@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/DeleteTwoTone';
-import { IconButton } from '@material-ui/core';
+// import { IconButton } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import {
   CardActions,
@@ -12,7 +13,7 @@ import {
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    maxWidth: 400,
     backgroundColor: '#eeeeff',
   },
   bullet: {
@@ -52,13 +53,21 @@ const TodoItem = ({
             color="default"
             inputProps={{ 'aria-label': 'checkbox with default color' }}
           />
-          <IconButton color="primary" onClick={() => onDelete(id)}>
-            <DeleteIcon />
-          </IconButton>
+
+          <DeleteIcon
+            color="primary"
+            onClick={() => onDelete(id)}
+            aria-label="Delete todo"
+          />
         </CardActions>
       </CardActionArea>
     </Card>
   );
+};
+
+// для доступности кнопок-иконок пишем проптайп ариа лейбл
+DeleteIcon.propTypes = {
+  'aria-label': PropTypes.string.isRequired,
 };
 
 export default TodoItem;
