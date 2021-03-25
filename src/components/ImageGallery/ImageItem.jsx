@@ -1,6 +1,6 @@
-const ImageItem = ({ image: { id, webformatURL, tags } }) => {
+const ImageItem = ({ webformatURL, tags }) => {
   return (
-    <li key={id}>
+    <li>
       <img src={webformatURL} alt={`${tags}`} />
     </li>
   );
