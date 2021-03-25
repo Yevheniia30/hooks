@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import ImageItem from './ImageItem';
 
 class ImageGallery extends Component {
   state = {
@@ -25,10 +26,8 @@ class ImageGallery extends Component {
       <div>
         <h2>ImageGallery</h2>
         <ul>
-          {images.map(({ id, webformatURL, tags }) => (
-            <li key={id}>
-              <img src={webformatURL} alt={`${tags}`} />
-            </li>
+          {images.map(image => (
+            <ImageItem image={image} />
           ))}
         </ul>
       </div>
