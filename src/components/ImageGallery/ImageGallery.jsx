@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import ImageItem from './ImageItem';
 import SearchBar from '../SearchBar/SearchBar';
+import fetchImages from '../../services/images-api';
+import ImagesApi from '../../services/images-api';
 
 class ImageGallery extends Component {
   state = {
@@ -10,33 +12,35 @@ class ImageGallery extends Component {
     searchQuery: '',
   };
 
-  // запрос на API нужно сделать когда state (у насsearchQuery) обновился и не равен предідущему
+  // запрос на API нужно сделать когда state (у нас searchQuery) обновился и не равен предідущему
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
-      this.fetchImages();
+      fetchImages();
     }
   }
 
   onChangeQuery = query => {
     // при сабмите сохраняем значение инпута query в searchQuery
-    this.setState({ searchQuery: query });
+    // при сабмите сбрасываем значение page и очищаем результаты предыдущего поиска
+    this.setState({ searchQuery: query, page: 1, images: [] });
   };
 
   //запрс на API вызывается при сабмите и при нажатии loadMore
-  fetchImages = query => {
-    // запрос на API согласно ключевому слову в строке поиска
-    const { page } = this.state;
-    axios
-      .get(
-        `https://pixabay.com/api/?q=${query}&page=${page}&key=16825213-7fb8f93f8fb61dc742d5122ac&image_type=photo&orientation=horizontal&per_page=12`,
-      )
-      .then(res => {
-        this.setState(prevState => ({
-          images: res.data.hits,
-          page: prevState.page + 1,
-        }));
-      });
-  };
+  // fetchImages = () => {
+  //   const { searchQuery, page } = this.state;
+  //   const key = '16825213-7fb8f93f8fb61dc742d5122ac';
+  //   axios
+  //     .get(
+  //       `https://pixabay.com/api/?q=${searchQuery}&page=${page}&key=${key}&image_type=photo&orientation=horizontal&per_page=12`,
+  //     )
+  //     .then(res => {
+  //       this.setState(prevState => ({
+  //         // распыляем массив полученных данных поверх предыдущего массива
+  //         images: [...prevState.images, ...res.data.hits],
+  //         page: prevState.page + 1,
+  //       }));
+  //     });
+  // };
 
   render() {
     const images = this.state.images;
@@ -49,7 +53,7 @@ class ImageGallery extends Component {
             <ImageItem key={id} webformatURL={webformatURL} tags={tags} />
           ))}
         </ul>
-        <button type="button" onClick={this.fetchImages}>
+        <button type="button" onClick={fetchImages}>
           Load more
         </button>
       </div>

@@ -1,12 +1,10 @@
 import TodoItem from './TodoItem';
 import { makeStyles } from '@material-ui/core/styles';
-import cat from '../../images/cat.jpg';
+// import cat from '../../images/cat.jpg';
 
 const useStyles = makeStyles({
   todosList: {
     width: 600,
-    // backgroundColor: '#cecece',
-    background: `url(${cat})`,
   },
 });
 

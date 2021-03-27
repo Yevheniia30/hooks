@@ -33,12 +33,12 @@ const TodosPage = () => {
 
   // cохраняем данные из локалсторейдж (аналог didMount)
   useEffect(() => {
-    setTodos(JSON.parse(localStorage.getItem('todos')));
+    // setTodos(JSON.parse(localStorage.getItem('todos')));
   }, []);
 
   // запишем тодо в локалсторейдж (аналог didUpdate)
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    // localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
   return (

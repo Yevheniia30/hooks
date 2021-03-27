@@ -1,19 +1,24 @@
 {
-  "posts": [
+  "todos": [
     {
       "id": 1,
-      "title": "HTML",
-      "author": "typicode"
+      "text": "json-server",
+      "date": 123654,
+      "isDone": false
     },
+    [
+      {
+        "id": 2,
+        "text": "buy smth",
+        "date": 789321,
+        "isDone": true
+      }
+    ],
     {
-      "id": 2,
-      "title": "CSS",
-      "author": "typicode"
-    },
-    {
-      "id": 3,
-      "title": "JavaScript",
-      "author": "typicode"
+      "text": "do it",
+      "date": 987456,
+      "isDone": false,
+      "id": 3
     }
   ]
 }

@@ -34,20 +34,8 @@ class App extends Component {
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <h1 className={s.main_title}>
-              {' '}
               Привет это контент модалки как children
             </h1>
-            <p className={s.text}>
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-              ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum{' '}
-            </p>
-            <button
-              type="button"
-              className={s.close_btn}
-              onClick={this.toggleModal}
-            >
-              Close
-            </button>
           </Modal>
         )}
         {/* <TimerPage /> */}
