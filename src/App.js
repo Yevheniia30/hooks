@@ -2,12 +2,12 @@ import { Component } from 'react';
 import s from './App.module.css';
 
 // import Example from './components/Example/Example';
-// import TodosPage from './components/Todos/TodosPage';
+import TodosPage from './components/Todos/TodosPage';
 import Modal from './components/Modal/Modal';
 // import TimerPage from './components/Timer/TimerPage';
 // import ArticleList from './components/ArticleList/ArticlelIst';
 // import Clock from './components/Clock/Clock';
-import ImageGallery from './components/ImageGallery/ImageGallery';
+// import ImageGallery from './components/ImageGallery/ImageGallery';
 
 class App extends Component {
   state = {
@@ -39,10 +39,10 @@ class App extends Component {
           </Modal>
         )}
         {/* <TimerPage /> */}
-        {/* <TodosPage /> */}
+        <TodosPage />
         {/* <Clock /> */}
         {/* <ArticleList articles={this.state.articles} /> */}
-        <ImageGallery />
+        {/* <ImageGallery /> */}
       </div>
     );
   }

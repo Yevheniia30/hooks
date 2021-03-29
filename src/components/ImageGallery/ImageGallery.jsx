@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import ImageItem from './ImageItem';
 import SearchBar from '../SearchBar/SearchBar';
-import fetchImages from '../../services/images-api';
-import ImagesApi from '../../services/images-api';
+// import fetchImages from '../../services/images-api';
+// import fetchImgs from '../../services/images-api';
+import imagesApi from '../../services/images-api';
 
 class ImageGallery extends Component {
   state = {
@@ -12,48 +12,54 @@ class ImageGallery extends Component {
     searchQuery: '',
   };
 
-  // запрос на API нужно сделать когда state (у нас searchQuery) обновился и не равен предідущему
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
-      fetchImages();
+      this.fetchImages();
     }
   }
 
   onChangeQuery = query => {
-    // при сабмите сохраняем значение инпута query в searchQuery
-    // при сабмите сбрасываем значение page и очищаем результаты предыдущего поиска
     this.setState({ searchQuery: query, page: 1, images: [] });
   };
 
-  //запрс на API вызывается при сабмите и при нажатии loadMore
-  // fetchImages = () => {
-  //   const { searchQuery, page } = this.state;
-  //   const key = '16825213-7fb8f93f8fb61dc742d5122ac';
-  //   axios
-  //     .get(
-  //       `https://pixabay.com/api/?q=${searchQuery}&page=${page}&key=${key}&image_type=photo&orientation=horizontal&per_page=12`,
-  //     )
-  //     .then(res => {
-  //       this.setState(prevState => ({
-  //         // распыляем массив полученных данных поверх предыдущего массива
-  //         images: [...prevState.images, ...res.data.hits],
-  //         page: prevState.page + 1,
-  //       }));
-  //     });
-  // };
+  fetchImages = () => {
+    const { page, searchQuery } = this.state;
+
+    const options = {
+      page,
+      searchQuery,
+    };
+
+    imagesApi.fetchImages(options).then(images => {
+      this.setState(prevState => ({
+        images: [...prevState.images, ...images],
+        page: prevState.page + 1,
+      }));
+      // плавный скролл стр когда приходит новые изображения
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    });
+  };
 
   render() {
-    const images = this.state.images;
+    const { images } = this.state;
     return (
       <div>
         <SearchBar onSubmit={this.onChangeQuery} />
-        <h2>ImageGallery</h2>
         <ul>
-          {images.map(({ id, webformatURL, tags }) => (
-            <ImageItem key={id} webformatURL={webformatURL} tags={tags} />
+          {images.map(({ id, webformatURL, tags, largeImageURL }) => (
+            <ImageItem
+              key={id}
+              webformatURL={webformatURL}
+              tags={tags}
+              largeImageURL={largeImageURL}
+              // onImgClick={onImgClick}
+            />
           ))}
         </ul>
-        <button type="button" onClick={fetchImages}>
+        <button type="button" onClick={this.fetchImages}>
           Load more
         </button>
       </div>

@@ -2,23 +2,146 @@
   "todos": [
     {
       "id": 1,
-      "text": "json-server",
+      "value": "json-server",
       "date": 123654,
+      "urgency": "low",
       "isDone": false
     },
-    [
-      {
-        "id": 2,
-        "text": "buy smth",
-        "date": 789321,
-        "isDone": true
-      }
-    ],
     {
-      "text": "do it",
+      "id": 2,
+      "value": "buy smth",
+      "date": 789321,
+      "urgency": "high",
+      "isDone": true
+    },
+    {
+      "id": 3,
+      "value": "do it",
       "date": 987456,
+      "urgency": "low",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "value": "trololo",
+      "date": 12365465894,
+      "urgency": "medium",
+      "isDone": false
+    },
+    {
+      "value": "sdfghjkl",
+      "urgency": "low",
+      "date": "2021/03/29 03:38:00",
       "isDone": false,
-      "id": 3
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "value": "sdfghjkl",
+      "urgency": "low",
+      "date": "2021/03/29 03:43:15",
+      "isDone": false,
+      "id": 7
+    },
+    {
+      "value": "xcvbnm,",
+      "urgency": "low",
+      "date": "2021/03/29 03:48:51",
+      "isDone": false,
+      "id": 8
+    },
+    {
+      "value": "qwerty",
+      "urgency": "high",
+      "date": "2021/03/29 03:49:42",
+      "isDone": false,
+      "id": 9
+    },
+    {
+      "value": "dfghjkl",
+      "urgency": "medium",
+      "date": "2021/03/29 04:51:02",
+      "isDone": false,
+      "id": 10
+    },
+    {
+      "value": "rtyui",
+      "urgency": "high",
+      "date": "2021/03/29 04:56:36",
+      "isDone": false,
+      "id": 11
+    },
+    {
+      "id": "cXlKlsHOz",
+      "value": "tyudfghjkl",
+      "urgency": "high",
+      "date": "2021/03/29 04:58:31",
+      "isDone": false
+    },
+    {
+      "value": "fghj",
+      "urgency": "low",
+      "date": "2021/03/29 05:00:23",
+      "isDone": false,
+      "id": 12
+    },
+    {
+      "value": "dfghjkl",
+      "urgency": "low",
+      "date": "2021/03/29 05:01:08",
+      "isDone": false,
+      "id": 13
+    },
+    {
+      "value": "sdfghjkl",
+      "urgency": "low",
+      "date": "2021/03/29 05:01:29",
+      "isDone": false,
+      "id": 14
+    },
+    {
+      "value": "123",
+      "urgency": "high",
+      "date": "2021/03/29 05:04:46",
+      "isDone": false,
+      "id": 15
+    },
+    {
+      "id": "WMLbFs_eg",
+      "value": "yevheniia",
+      "urgency": "low",
+      "date": "2021/03/29 05:07:07",
+      "isDone": false
+    },
+    {
+      "id": "lPdDYcEbG",
+      "value": "min",
+      "urgency": "medium",
+      "date": "2021/03/29 05:13:52",
+      "isDone": false
+    },
+    {
+      "id": "B5ON1N8Tn",
+      "value": "anna",
+      "urgency": "high",
+      "date": "2021/03/29 05:17:20",
+      "isDone": false
+    },
+    {
+      "id": "lp_7HGyOJ",
+      "value": "hhh",
+      "urgency": "high",
+      "date": "2021/03/29 05:18:25",
+      "isDone": false
+    },
+    {
+      "id": "9qw7wd4j4",
+      "value": "nnn",
+      "urgency": "high",
+      "date": "2021/03/29 05:19:40",
+      "isDone": false
     }
   ]
 }
